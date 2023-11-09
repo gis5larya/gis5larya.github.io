@@ -174,10 +174,10 @@ components:
       properties:
         username:
           type: string
-          example: gilar
+          example: gilarya
         password:
           type: string
-          example: kepo
+          example: hahaha
     InsertData:
       type: object
       properties:
@@ -186,10 +186,10 @@ components:
           example: Point
         name:
           type: string
-          example: gilar
+          example: gilarya
         volume:
           type: string
-          example: anjas
+          example: anjayyy
     bodycord:
       type: object
       properties:
@@ -198,10 +198,10 @@ components:
           example: Point
         name:
           type: string
-          example: bangunan uhuyy
+          example:jalan wkwkwk
         volume:
           type: string
-          example: anjas
+          example: anjayyy
     AuthResponse:
       type: object
       properties:
@@ -210,7 +210,7 @@ components:
           example: true
         token:
           type: string
-          example: anjass
+          example: anjayyy
         message:
           type: string
           example: Selamat Datang
@@ -240,10 +240,10 @@ components:
           example: Point
         name:
           type: string
-          example: bangunan uhuyy
+          example: jalan wkwkwk
         volume:
           type: string
-          example: anjas
+          example: anjayyy
 
     Data:
       type: object
