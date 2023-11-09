@@ -174,7 +174,7 @@ components:
       properties:
         username:
           type: string
-          example: syahid
+          example: gilar
         password:
           type: string
           example: kepo
@@ -186,7 +186,7 @@ components:
           example: Point
         name:
           type: string
-          example: syahid
+          example: gilar
         volume:
           type: string
           example: anjas
