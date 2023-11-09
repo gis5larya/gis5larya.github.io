@@ -177,7 +177,7 @@ components:
           example: gilarya
         password:
           type: string
-          example: hahaha
+          example: kepo
     InsertData:
       type: object
       properties:
@@ -189,7 +189,7 @@ components:
           example: gilarya
         volume:
           type: string
-          example: anjayyy
+          example: anjas
     bodycord:
       type: object
       properties:
@@ -198,10 +198,10 @@ components:
           example: Point
         name:
           type: string
-          example:jalan wkwkwk
+          example: bangunan uhuyy
         volume:
           type: string
-          example: anjayyy
+          example: anjas
     AuthResponse:
       type: object
       properties:
@@ -210,7 +210,7 @@ components:
           example: true
         token:
           type: string
-          example: anjayyy
+          example: anjass
         message:
           type: string
           example: Selamat Datang
@@ -240,10 +240,10 @@ components:
           example: Point
         name:
           type: string
-          example: jalan wkwkwk
+          example: bangunan uhuyy
         volume:
           type: string
-          example: anjayyy
+          example: anjas
 
     Data:
       type: object
@@ -274,5 +274,7 @@ components:
       type: apiKey
       name: token
       in: header
+
+      
 
       
