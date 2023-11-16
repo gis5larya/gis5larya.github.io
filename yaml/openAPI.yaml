@@ -198,7 +198,7 @@ components:
           example: Point
         name:
           type: string
-          example: bangunan glar
+          example: gilarz
         volume:
           type: string
           example: anjas
@@ -240,7 +240,7 @@ components:
           example: Point
         name:
           type: string
-          example: bangunan uhuyy
+          example: gilarz
         volume:
           type: string
           example: anjas
