@@ -198,7 +198,7 @@ components:
           example: Point
         name:
           type: string
-          example: bangunan uhuyy
+          example: bangunan glar
         volume:
           type: string
           example: anjas
