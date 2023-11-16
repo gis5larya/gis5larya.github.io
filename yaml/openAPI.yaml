@@ -48,7 +48,7 @@ paths:
                 $ref: '#/components/schemas/AuthResponse'
         '405':
           description: Invalid input
-  /larcbgis4:
+  /postgeo:
     post:
       tags:
         - data
