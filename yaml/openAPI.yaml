@@ -8,7 +8,7 @@ info:
     email: gilarwahibul@gmail.com
   license:
     name: Backend Package
-    url: https://pkg.go.dev/github.com/GilarYa/backendgis4
+    url: https://pkg.go.dev/github.com/gis5larya/backendgcf
   version: 1.0.11
 externalDocs:
   description: Swagger
@@ -20,14 +20,14 @@ tags:
     description: Authentikasi
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/GilarYa/backendgis4
+      url: https://github.com/gis5larya/backendgcf
   - name: data
     description: Data Untuk akses GIS
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/GilarYa/backendgis4
+      url: https://github.com/gis5larya/backendgcf
 paths:
-  /zregistergis:
+  /zregisgis:
     post:
       tags:
         - register
