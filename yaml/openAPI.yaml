@@ -27,7 +27,28 @@ tags:
       description: Deskripsi dan Kode Program
       url: https://github.com/GilarYa/backendgis4
 paths:
-  /logindata:
+  /zregistergis:
+    post:
+      tags:
+        - register
+      summary: Register User Without Token
+      description: Daftar Akun User
+      operationId: authService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '405':
+          description: Invalid input
+  /zlogingis:
     post:
       tags:
         - auth
@@ -48,33 +69,33 @@ paths:
                 $ref: '#/components/schemas/AuthResponse'
         '405':
           description: Invalid input
-  /postgeo:
-    post:
+  /zupdategis:
+    put:
       tags:
         - data
-      summary: Insert Data Geo
+      summary: Update data geo
       description: Update data nama by volume geo
       operationId: authService
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InsertData'
+              $ref: '#/components/schemas/bodycord'
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseInsert'
+                $ref: '#/components/schemas/Response'
         '405':
           description: Invalid input          
       security:
-        - token:
+        - Login:
           - write:apiKey
           - read:apiKey
 
-  /getdatayaw:
+  /zgetallgis:
     get:
       tags:
         - data
@@ -89,69 +110,26 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/responseData'
+                  $ref: '#/components/schemas/responseUser'
         '400':
           description: Invalid status value
       security:
-        - token:
-          - write:apiKey
-          - read:apiKey
-  /updatedata:
-    put:
-      tags:
-        - data
-      summary: Update Data Geo
-      description: Update data nama by volume 
-      operationId: authService
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/bodycord'
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResponseUpdate'
-        '405':
-          description: Invalid input          
-      security:
-        - token:
+        - Login:
           - write:apiKey
           - read:apiKey
 
-  /deletedata:
-    delete:
-      tags:
-        - data
-      summary: Delete Data Geo
-      description: Delete Data Geo by nama
-      operationId: DeleteData
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ReqData'
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Data'
-        '400':
-          description: Invalid status value
-      security:
-        - token:
-          - write:apiKey
-          - read:apiKey
 components:
   schemas:
-    ResponseInsert:
+    user:
+      type: object
+      properties:
+        username:
+          type: string
+          example : gilar
+        password:
+          type: string
+          example: gilar
+    Response:
       type: object
       properties:
         status:
@@ -159,8 +137,8 @@ components:
           example: true
         message:
           type: string
-          example: Berhasil Input Data
-    ResponseUpdate:
+          example: Berhasil Input data
+    responseUser:
       type: object
       properties:
         status:
@@ -168,7 +146,19 @@ components:
           example: true
         message:
           type: string
-          example: Berhasil Update Data
+          example: berhasil ambil data
+        data:
+          type: object
+          properties:
+            username:
+              type: string
+              example: gilar
+            password:
+              type: string
+              example: hashed password
+            role:
+              type: string
+              example: user
     Auth:
       type: object
       properties:
@@ -177,83 +167,31 @@ components:
           example: gilar
         password:
           type: string
-          example: haha
-    InsertData:
-      type: object
-      properties:
-        type:
-          type: string
-          example: Point
-        name:
-          type: string
           example: gilar
-        volume:
-          type: string
-          example: anjas
     bodycord:
       type: object
       properties:
         type:
           type: string
-          example: Point
+          example: polygon
         name:
           type: string
-          example: gilarz
+          example: gilar
         volume:
           type: string
-          example: anjas
+          example: "1"
     AuthResponse:
       type: object
       properties:
         status:
           type: bool
-          example: true
-        token:
-          type: string
-          example: anjass
+          example: false
         message:
           type: string
           example: Selamat Datang
-    responseData:
-      type: object
-      properties:
-        type:
+        token:
           type: string
-        geometry:
-          type: object
-          properties:
-            type: 
-              type: string
-            coordinates: 
-              type: array
-        properties:
-          type: object
-          properties:
-            name:
-              type: string
-    
-    ReqData:
-      type: object
-      properties:
-        type:
-          type: string
-          example: Point
-        name:
-          type: string
-          example: gilarz
-        volume:
-          type: string
-          example: anjas
-
-    Data:
-      type: object
-      properties:
-        status:
-          type: bool
-          example: true
-        message:
-          type: string
-          example: "Berhasil menghapus data. Jumlah data terhapus:"
+          example: gilar
   requestBodies:
     AuthReq:
       description: Request Authentication
@@ -261,7 +199,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Auth'
-    DataArray:
+    UserArray:
       description: List of user object
       content:
         application/json:
@@ -270,9 +208,7 @@ components:
             items:
               $ref: '#/components/schemas/AuthResponse'
   securitySchemes:
-    token:
+    Login:
       type: apiKey
-      name: token
+      name: Login
       in: header
-
-      
